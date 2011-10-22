@@ -5,8 +5,8 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import r.core.applet.GameApplet;
-import r.core.scene.SceneBase;
+import org.jgel.applet.GameApplet;
+import org.jgel.scene.SceneBase;
 import test.scene.SceneTest;
 
 public class App extends GameApplet {
