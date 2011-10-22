@@ -1,9 +1,9 @@
-package r.core.utils.eventListeners;
+package org.jgel.utils.eventListeners;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import r.core.input.Keyboard;
+import org.jgel.input.Keyboard;
 
 public class KeyboardSystem implements KeyListener
 {
