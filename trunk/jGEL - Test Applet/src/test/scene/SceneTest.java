@@ -2,12 +2,12 @@ package test.scene;
 
 import java.awt.Color;
 
-import r.core.graphics.Bitmap;
-import r.core.graphics.Graphics;
-import r.core.graphics.Rect;
-import r.core.graphics.Sprite;
-import r.core.graphics.TextBitmap;
-import r.core.scene.SceneBase;
+import org.jgel.graphics.Bitmap;
+import org.jgel.graphics.Graphics;
+import org.jgel.graphics.Rect;
+import org.jgel.graphics.Sprite;
+import org.jgel.graphics.TextBitmap;
+import org.jgel.scene.SceneBase;
 
 public class SceneTest extends SceneBase {
 
