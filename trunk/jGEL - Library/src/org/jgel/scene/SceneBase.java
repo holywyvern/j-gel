@@ -28,12 +28,12 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =============================================================================*/
-package r.core.scene;
+package org.jgel.scene;
 
-import r.core.graphics.Graphics;
-import r.core.input.Keyboard;
-import r.core.input.Mouse;
-import r.core.applet.GameApplet;
+import org.jgel.graphics.Graphics;
+import org.jgel.input.Keyboard;
+import org.jgel.input.Mouse;
+import org.jgel.applet.GameApplet;
 
 // TODO: Auto-generated Javadoc
 /**

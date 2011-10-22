@@ -1,9 +1,9 @@
-package r.core.utils.eventListeners;
+package org.jgel.utils.eventListeners;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import r.core.input.Mouse;
+import org.jgel.input.Mouse;
 
 public class MouseSystem implements MouseListener
 {

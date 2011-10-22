@@ -28,15 +28,15 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =============================================================================*/
-package r.core.graphics.gui;
+package org.jgel.graphics.gui;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import r.core.graphics.Rect;
-import r.core.graphics.Size;
-import r.core.input.Mouse;
+import org.jgel.graphics.Rect;
+import org.jgel.graphics.Size;
+import org.jgel.input.Mouse;
 
 // TODO: Auto-generated Javadoc
 /**

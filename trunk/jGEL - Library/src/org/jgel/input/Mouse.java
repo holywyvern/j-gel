@@ -28,14 +28,14 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =============================================================================*/
-package r.core.input;
+package org.jgel.input;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
-import r.core.graphics.Graphics;
-import r.core.graphics.Rect;
-import r.core.applet.GameApplet;
+import org.jgel.graphics.Graphics;
+import org.jgel.graphics.Rect;
+import org.jgel.applet.GameApplet;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Mouse.

@@ -28,9 +28,9 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =============================================================================*/
-package r.core.graphics.gui;
+package org.jgel.graphics.gui;
 
-import r.core.graphics.Rect;
+import org.jgel.graphics.Rect;
 
 // TODO: Auto-generated Javadoc
 /**

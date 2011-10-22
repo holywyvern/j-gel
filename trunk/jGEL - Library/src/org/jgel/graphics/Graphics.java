@@ -28,7 +28,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =============================================================================*/
-package r.core.graphics;
+package org.jgel.graphics;
 
 import java.awt.AlphaComposite;
 import java.awt.Container;
@@ -53,7 +53,7 @@ import javax.swing.JFrame;
 import com.jhlabs.image.BoxBlurFilter;
 import com.jhlabs.image.GradientWipeFilter;
 
-import r.core.applet.GameApplet;
+import org.jgel.applet.GameApplet;
 
 /**
  * The Graphics class. Used yo Manipulate all the data of the Graphics.

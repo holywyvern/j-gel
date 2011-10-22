@@ -28,12 +28,12 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =============================================================================*/
-package r.core.graphics.particle;
+package org.jgel.graphics.particle;
 
 import java.awt.Graphics2D;
 
-import r.core.graphics.Viewport;
-import r.core.graphics.ZObject;
+import org.jgel.graphics.Viewport;
+import org.jgel.graphics.ZObject;
 
 // TODO: Auto-generated Javadoc
 /**
