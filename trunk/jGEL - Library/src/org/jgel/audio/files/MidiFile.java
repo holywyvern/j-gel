@@ -12,46 +12,22 @@ import org.jgel.audio.SoundFile;
 
 public class MidiFile implements MusicFile, SoundFile
 {
-	private AudioClip clip;
 	
 	public MidiFile(String filename, int volume, int pitch, int pan)
 	{
 		
-		try
-		{
-			File f = new File(filename);
-			clip = Applet.newAudioClip(f.toURI().toURL());
-		} catch (Exception e)
-		{
-			try
-			{
-				clip = Applet.newAudioClip(new URL(GameApplet.getCodeBase2(), filename));
-			} catch (Exception e1)
-			{
-				try
-				{
-					clip = Applet.newAudioClip(new URL(filename));
-				} catch (MalformedURLException e2)
-				{
-					clip = null;
-				}
-			}
-		}
-		if (clip != null)
-		{
-		}
 	}
 	
 	@Override
 	public void play()
 	{
-		clip.play();
+		
 	}
 
 	@Override
 	public void stop()
 	{
-		clip.stop();
+	
 	}
 
 	@Override
