@@ -88,4 +88,11 @@ public class WavFile implements MusicFile, SoundFile
 		return 0;
 	}
 
+	@Override
+	public void loop()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

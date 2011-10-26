@@ -87,4 +87,11 @@ public class Mp3File implements MusicFile
 		return 0;
 	}
 
+	@Override
+	public void loop()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

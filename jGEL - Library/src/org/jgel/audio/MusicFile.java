@@ -4,6 +4,7 @@ public interface MusicFile
 {
 	
 	public void play();
+	public void loop();
 	public void stop();
 	public void pause();
 	public void resume();
