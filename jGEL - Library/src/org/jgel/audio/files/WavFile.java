@@ -6,6 +6,11 @@ import org.jgel.audio.SoundFile;
 public class WavFile implements MusicFile, SoundFile
 {
 
+	public WavFile(String filename, int volume, int pitch, int pan)
+	{
+		
+	}	
+	
 	@Override
 	public void play()
 	{

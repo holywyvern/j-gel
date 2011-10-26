@@ -5,6 +5,11 @@ import org.jgel.audio.MusicFile;
 public class Mp3File implements MusicFile
 {
 
+	public Mp3File(String filename, int volume, int pitch, int pan)
+	{
+		
+	}	
+	
 	@Override
 	public void play()
 	{

@@ -6,6 +6,11 @@ import org.jgel.audio.SoundFile;
 public class MidiFile implements MusicFile, SoundFile
 {
 
+	public MidiFile(String filename, int volume, int pitch, int pan)
+	{
+		
+	}
+	
 	@Override
 	public void play()
 	{
