@@ -1,10 +1,16 @@
 package org.jgel.audio.files;
 
 import org.jgel.audio.MusicFile;
+import org.jgel.audio.SoundFile;
 
-public class OggFile implements MusicFile
+public class OggFile implements MusicFile, SoundFile
 {
 
+	public OggFile(String filename, int volume, int pitch, int pan)
+	{
+		
+	}	
+	
 	@Override
 	public void play()
 	{

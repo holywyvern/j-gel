@@ -5,6 +5,11 @@ import org.jgel.audio.MusicFile;
 public class WMAFile implements MusicFile
 {
 
+	public WMAFile(String filename, int volume, int pitch, int pan)
+	{
+		
+	}	
+	
 	@Override
 	public void play()
 	{
