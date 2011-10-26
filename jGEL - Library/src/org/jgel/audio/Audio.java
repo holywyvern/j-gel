@@ -67,4 +67,20 @@ public abstract class Audio
 		return null;
 	}	
 	
+	public static final void bgmStop()
+	{
+		
+	}
+	
+	public static final void seStop()
+	{
+		
+	}
+	
+	
+	public static final void bgmFade(int time)
+	{
+		
+	}
+	
 }
