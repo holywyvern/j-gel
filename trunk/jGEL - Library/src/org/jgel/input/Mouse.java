@@ -189,8 +189,8 @@ public abstract class Mouse
 		frameCount = (frameCount + 1) % 4;
 		Point appletPos = GameApplet.getPositionOnScreen();
 		Point mousePos  = MouseInfo.getPointerInfo().getLocation();
-		Mouse.x = (mousePos.x - appletPos.x);
-		Mouse.y = (mousePos.y - appletPos.y);
+		Mouse.x = Graphics.adjustX(mousePos.x - appletPos.x);
+		Mouse.y = Graphics.adjustY(mousePos.y - appletPos.y);
 		switch (leftState)
 		{
 			case FCLICK:

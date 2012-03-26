@@ -40,6 +40,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.imageio.ImageIO;
@@ -50,9 +51,14 @@ import javax.imageio.ImageIO;
  * @author Ramiro
  * @version 1.0 08/09/2011
  */
-public class Bitmap 
+public class Bitmap implements Serializable
 {
 	
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+
 	/** Constant that gives the value of the left aling in the text */
 	public static final int TEXT_ALING_LEFT   = 0;
 	
@@ -251,8 +257,9 @@ public class Bitmap
 	 */
 	public final void fillRect(int x, int y, int width, int height, Color color)
 	{
-		image.getGraphics().setColor(color);
-		image.getGraphics().fillRect(x, y, width, height);
+		java.awt.Graphics g = image.getGraphics();
+		g.setColor(color);
+		g.fillRect(x, y, width, height);
 		refresh();
 	}		
 
@@ -610,7 +617,7 @@ public class Bitmap
 	 * 
 	 * @param filename the name of the png file without extension.
 	 */
-	public final void toPNG(String filename)
+	public final boolean toPNG(String filename)
 	{
 		File file = new File(filename + ".png");
 		try
@@ -618,7 +625,14 @@ public class Bitmap
 			ImageIO.write(image, "png", file);
 		} catch (IOException e)
 		{
+			return false;
 		}
+		return true;
+	}
+	
+	public final Rect rect()
+	{
+		return new Rect(0, 0, width, height);
 	}
 	
 }

@@ -139,9 +139,11 @@ public class Plane extends ZObject {
 	 */
 	protected final void draw(Graphics2D g)
 	{
+		ox %= orgW;
+		oy %= orgH;
 		if (zoomX <= 0 || zoomY <= 0 || bitmap == null || opacity == 0) return;
 		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity / 255.0f)); 		
-		g.drawImage(image, (- ox) % orgW, (- oy) % orgH, null);
+		g.drawImage(image, - ox, - oy, null);
 	}
 
 	/**
