@@ -31,7 +31,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package org.jgel.graphics;
 
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Frame;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
@@ -363,25 +365,39 @@ public abstract class Graphics
 	 */
 	public synchronized static final void update()
 	{
-		if (isFreezed) return;
-		if (needObjectUpdate)
+		Container container = frame;
+		if (!isFreezed) 
 		{
-			reorganizeObjects();
-			needObjectUpdate = false;
+			if (needObjectUpdate)
+			{
+				reorganizeObjects();
+				needObjectUpdate = false;
+			}
+			if (frame != null)
+			{
+				if (frame instanceof JFrame)
+				{
+					container = ((JFrame) frame).getContentPane();
+					data = (Graphics2D)((JFrame) frame).getContentPane().getGraphics();
+				}
+				else
+				{
+					data = (Graphics2D)frame.getGraphics();
+				}
+			}
 		}
-		if (frame != null && data == null)
-		{
-			if (frame instanceof JFrame)
-				data = (Graphics2D)((JFrame) frame).getContentPane().getGraphics();
-			else
-				data = (Graphics2D)frame.getGraphics();
-		}
+		if (container == null) return;
 		next_tick += ticks;
 		data.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1)); 
 		long first_tick = Calendar.getInstance().getTimeInMillis();	
-		g2d.clearRect(0, 0, width, height);
+		//g2d.clearRect(0, 0, width, height);
+		g2d.setColor(Color.BLACK);
+		g2d.fillRect(0, 0, width, height);
+		BufferedImage img = isFreezed ? freezeImage : buffer; 
 		for (int i = 0; i < objectArray.length; i++) objectArray[i].drawContent(g2d);
-		data.drawImage(buffer, 0, 0, null);
+		//data.drawImage(img, 0, 0, null);
+		data.drawImage(img, 0, 0, container.getWidth(), container.getHeight(),
+				0, 0, Graphics.width(), Graphics.height(), null);		
 		regulateFrameSpeed(first_tick);
 		frameCount++;
 	}
@@ -784,4 +800,23 @@ public abstract class Graphics
 		}
 	}
 
+	private static Container container()
+	{
+		return (frame instanceof JFrame) ? ((JFrame)frame).getContentPane() : frame ;
+	}
+	
+	public static final int adjustX(int x)
+	{
+		Container c = container();
+		if (c == null) return x;
+		return x * width / c.getWidth();
+	}
+	
+	public static final int adjustY(int y)
+	{
+		Container c = container();
+		if (c == null) return y;		
+		return y * height / c.getHeight();
+	}	
+	
 }

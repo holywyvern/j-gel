@@ -323,7 +323,7 @@ FTRIGGER,
 	 * @param key the key
 	 * @return true, if successful
 	 */
-	public static final boolean trigger(int key)
+	public static final boolean isTrigger(int key)
 	{
 		if (key < 0 || key > keys.length) return false;
 		return (keys[key] == KeyState.FTRIGGER || keys[key] == KeyState.TRIGGER);
@@ -335,7 +335,7 @@ FTRIGGER,
 	 * @param key the key
 	 * @return true, if successful
 	 */
-	public static final boolean repeat(int key)
+	public static final boolean isRepeat(int key)
 	{
 		if (key < 0 || key >= keys.length) return false;
 		return ((keys[key] == KeyState.FTRIGGER || keys[key] == KeyState.TRIGGER || keys[key] == KeyState.PRESSED) && (frameCount == 0));
@@ -347,7 +347,7 @@ FTRIGGER,
 	 * @param key the key
 	 * @return true, if successful
 	 */
-	public static final boolean press(int key)
+	public static final boolean isPress(int key)
 	{
 		if (key < 0 || key >= keys.length) return false;
 		return (keys[key] == KeyState.FTRIGGER || keys[key] == KeyState.TRIGGER || keys[key] == KeyState.PRESSED);
@@ -359,7 +359,7 @@ FTRIGGER,
 	 * @param key the key
 	 * @return true, if successful
 	 */
-	public static final boolean released(int key)
+	public static final boolean isReleased(int key)
 	{
 		if (key < 0 || key >= keys.length) return false;
 		return (keys[key] == KeyState.FRELEASED || keys[key] == KeyState.RELEASED);
@@ -372,6 +372,10 @@ FTRIGGER,
 	 */
 	public static final int dir4()
 	{
+		if (Keyboard.isPress(UP))         { return 2; }
+		else if (Keyboard.isPress(DOWN))  { return 8; }
+		else if (Keyboard.isPress(LEFT))  { return 4; }
+		else if (Keyboard.isPress(RIGHT)) { return 6; }
 		return 0;
 	}
 	

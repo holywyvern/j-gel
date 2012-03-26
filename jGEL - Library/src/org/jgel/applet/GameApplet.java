@@ -33,18 +33,21 @@ package org.jgel.applet;
 import org.jgel.graphics.Graphics;
 import org.jgel.input.Keyboard;
 import org.jgel.input.Mouse;
+import org.jgel.managers.SceneManager;
 import org.jgel.scene.SceneBase;
 import org.jgel.utils.eventListeners.KeyboardSystem;
 import org.jgel.utils.eventListeners.MouseSystem;
 
 import java.applet.Applet;
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Panel;
 import java.awt.Point;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
 import java.net.URL;
 
 import javax.swing.JFrame;
@@ -61,9 +64,8 @@ public abstract class GameApplet extends Applet
 	 * 
 	 */
 	private static final long	serialVersionUID	= -2412542006038018181L;
-
-	/** The scene. */
-	public static SceneBase scene;
+	
+	private static SceneBase scene;
 	
 	/** The applet. */
 	private static GameApplet applet;
@@ -98,6 +100,14 @@ public abstract class GameApplet extends Applet
 			applet.addMouseListener(ml);	
 			applet.addKeyListener(kl);
 		}
+		f.addMouseListener(ml);
+		f.addKeyListener(kl);
+		if (f != null && f.getParent() != null)
+		{
+			Container fParent = f.getParent();
+			fParent.addMouseListener(ml);
+			fParent.addKeyListener(kl);
+		}
 		new Thread()
 		{
 			public void run()
@@ -107,8 +117,7 @@ public abstract class GameApplet extends Applet
 				Keyboard.initialize();
 				if (frame == null) Graphics.initialize(getGameInitialWidth(), getGameInitialHeight(), applet);
 				else Graphics.initialize(getGameInitialWidth(), getGameInitialHeight(), frame);
-				Graphics.freeze();
-				while (GameApplet.scene != null) GameApplet.scene.main();
+				SceneManager.run(GameApplet.scene);
 			}
 		}.start();
 
@@ -188,9 +197,12 @@ public abstract class GameApplet extends Applet
 		Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
 		JFrame frame = new JFrame("");
 		game.initApplet();
-		frame.setSize(game.getWidth(), game.getHeight());
+		//frame.getContentPane().setSize(game.getSize());
+		//frame.setSize(game.getWidth(), game.getHeight());
+		frame.setLayout(new FlowLayout());
+		frame.getContentPane().setLayout(new FlowLayout());
 		frame.setVisible(true);	
-		frame.setResizable(false);
+		//frame.setResizable(false);
 		game.initEngine(game.getInitialScene(), frame);
 		frame.setBounds(center.x - game.getWidth() / 2, center.y - game.getHeight() / 2,game.getWidth(), game.getHeight());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
@@ -216,7 +228,7 @@ public abstract class GameApplet extends Applet
 	{
 		setSize(getGameInitialWidth(),getGameInitialHeight());
 		initApplet();
-		initEngine(getInitialScene(), null);
+		initEngine(getInitialScene(), this);
 	}
 	
 	/**
@@ -276,7 +288,7 @@ public abstract class GameApplet extends Applet
 	 */
 	public static final SceneBase getCurrentScene()
 	{
-		return GameApplet.scene;
+		return SceneManager.scene();
 	}
 	
 	/**

@@ -1,6 +1,6 @@
 package org.jgel.graphics.gui;
 
-public interface ListControl
+public interface ListControl<T> extends ItemControl<T>
 {
 
 }

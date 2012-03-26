@@ -240,7 +240,7 @@ public class Sprite extends ZObject {
 		if (this.bitmap != null) this.bitmap.removeReference(this);
 		this.bitmap = value;
 		this.bitmap.addReference(this);
-		this.srcRect.set(0, 0, this.bitmap.width(), this.bitmap.height());
+		this.srcRect = bitmap.rect();
 		refresh();
 	}
 	

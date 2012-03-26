@@ -42,7 +42,7 @@ import org.jgel.input.Mouse;
 /**
  * The Class Widget.
  */
-public abstract class Widget implements ChildContainer
+public abstract class Widget implements ChildContainer, org.jgel.graphics.gui.Drawable
 {
 	
 	/** The y. */
@@ -155,6 +155,7 @@ public abstract class Widget implements ChildContainer
 	public final void draw(Graphics2D g)
 	{
 		if (widgetImage != null) g.drawImage(widgetImage, x, y, null);
+		drawWidgetImages(g);
 		if (childrenImage != null && childrenArray.length > 0)
 		{
 			Graphics2D g2 = childrenImage.createGraphics();
@@ -250,4 +251,5 @@ public abstract class Widget implements ChildContainer
 	 */
 	public abstract void dispose();
 	
+	public void drawWidgetImages(Graphics2D g) {}
 }

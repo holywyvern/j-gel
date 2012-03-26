@@ -33,6 +33,7 @@ package org.jgel.scene;
 import org.jgel.graphics.Graphics;
 import org.jgel.input.Keyboard;
 import org.jgel.input.Mouse;
+import org.jgel.managers.SceneManager;
 import org.jgel.applet.GameApplet;
 
 // TODO: Auto-generated Javadoc
@@ -41,6 +42,8 @@ import org.jgel.applet.GameApplet;
  */
 public abstract class SceneBase 
 {
+	
+	private boolean running;
 	
 	/** The LOCK. */
 	private static Object LOCK = new Object();
@@ -53,12 +56,13 @@ public abstract class SceneBase
 	{
 		synchronized (LOCK)
 		{
+			running = true;
 			start();
 			Mouse.update();
 			Keyboard.update();
 			performTransition();
 			postStart();
-			while (GameApplet.scene == this)
+			while (isRunning())
 			{
 				if (Graphics.needTransition()) Graphics.updateTransition();
 				else
@@ -75,6 +79,11 @@ public abstract class SceneBase
 			Keyboard.update();
 			terminate();
 		}
+	}
+
+	private final boolean isRunning()
+	{
+		return SceneManager.scene() == this;
 	}
 
 	/**
